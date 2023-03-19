@@ -43,6 +43,15 @@ replaced by Google's [re2](https://github.com/google/re2). This is a fast and
 convenient to use regular expression matcher. On Ubuntu systems you must have
 `libre2_dev` installed.
 
+If you are unable to install software on the system, there are options.
+
+1. Install `re2` in your local area and configure CMakeLists.txt to use
+that local install - perhaps by just adjusting cxx flags, or pointing to
+the cloned repo.
+
+2. Use the `ExternalProject_Add` functionality within `cmake`. The `re2` repo
+is configured for use with `cmake`.
+
 ## zlib
 When the old LillyMol was built, there were incompatible versions of zlib in
 use and it caused considerable problems. On up to date Ubuntu systems this
