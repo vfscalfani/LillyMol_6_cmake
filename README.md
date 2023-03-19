@@ -10,9 +10,11 @@ build to use cmake.
 
 # Prerequisites
 
+## gcc
 On my Ubuntu 20.04 system, the installed gcc compiler is 9.4.0 and
 the build works. Earlier and later versions might also work.
 
+## cmake
 Since this version used cmake, you must have cmake installed. On my
 Ubuntu 20.04 version, this is version 3.16.3 and that is specified
 as the minimum version in the top level CMakeLists.txt file. It is
@@ -35,15 +37,18 @@ DISTRIB_CODENAME=jammy
 DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
 ```
 
+## re2
 The old regular expression handling in LillyMol6 was horrible, and has been
 replaced by Google's [re2](https://github.com/google/re2). This is a fast and
 convenient to use regular expression matcher. On Ubuntu systems you must have
 `libre2_dev` installed.
 
+## zlib
 When the old LillyMol was built, there were incompatible versions of zlib in
 use and it caused considerable problems. On up to date Ubuntu systems this
 should be installed by default.
 
+## Eigen (optional)
 There are some executables that are not built by default that depend on
 `eigen`, and so if you have that installed you could build `tshadow` which
 is an interesting 3D tool.
