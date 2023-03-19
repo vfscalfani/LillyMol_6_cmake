@@ -4,12 +4,12 @@
 #include "Foundational/iwmisc/sparse_fp_creator.h"
 #include "Foundational/iwstring/iw_stl_hash_map.h"
 
-#include "iwreaction.h"
+#include <fstream>
 #include <iostream>
 #include <iomanip>
-#include <fstream>
 
 #include "mdl_molecule.h"
+#include "iwreaction.h"
 
 class Atom_Typing_Specification;
 class ISIS_RXN_FILE_Molecule;
@@ -134,7 +134,7 @@ class ISIS_RXN_FILE_Molecule : public MDL_Molecule
 //  When deciding whether we need to toggle Kekule forms, we need to know whether
 //  ring membership changes or not
 
-    resizable_array_p<Bond> _toggle_kekule_form;
+    ::resizable_array_p<Bond> _toggle_kekule_form;
 
 //  For some reactions, it is better to forget Kekule forms.
 
