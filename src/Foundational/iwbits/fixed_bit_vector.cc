@@ -126,6 +126,9 @@ words_for_bits(int nbits) {
 void
 FixedBitVector::_allocate_bits(int nb) {
   _nwords = words_for_bits(nb);
+  if (_nwords == 0) {
+    return;
+  }
   _bits = new uint64_t[_nwords];
   std::fill_n(_bits, _nwords, 0);
   _nbits = _nwords * kBitsPerWord;

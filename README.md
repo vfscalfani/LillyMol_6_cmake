@@ -14,7 +14,7 @@ On my Ubuntu 20.04 system, the installed gcc compiler is 9.4.0 and
 the build works. Earlier and later versions might also work.
 
 Since this version used cmake, you must have cmake installed. On my
-Ubuntu 20.04 version, this is version 3.16.1 and that is specified
+Ubuntu 20.04 version, this is version 3.16.3 and that is specified
 as the minimum version in the top level CMakeLists.txt file. It is
 quite possible this might work with earlier versions, I did not 
 test this.
@@ -29,7 +29,10 @@ DISTRIB_DESCRIPTION="Ubuntu 20.04.5 LTS"
 ```
 and
 ```
-q
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
 ```
 
 The old regular expression handling in LillyMol6 was horrible, and has been
@@ -57,7 +60,7 @@ cd build
 
 Then build the Makfiles
 ```
-cmake -f ..
+cmake ..
 ```
 
 and then you should be ready to build.
