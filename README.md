@@ -81,5 +81,5 @@ I would like to hear about problems, ianiwatson@gmail.com, my intent is that
 this should build relatively easily..
 
 # Documentation
-As part of a longer term effort to document LillyMol, please see the `docs`
+As part of a longer term effort to document LillyMol, please see the [docs](docs)
 directory. More documentation will be added to this soon.
