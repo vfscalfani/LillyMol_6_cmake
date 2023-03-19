@@ -38,7 +38,7 @@ convenient to use regular expression matcher. On Ubuntu systems you must have
 `libre2_dev` installed.
 
 When the old LillyMol was built, there were incompatible versions of zlib in
-use and it caused consiserable problems. On up to date Ubuntu systems this
+use and it caused considerable problems. On up to date Ubuntu systems this
 should be installed by default.
 
 There are some executables that are not built by default that depend on
@@ -79,3 +79,7 @@ make -k
 ```
 I would like to hear about problems, ianiwatson@gmail.com, my intent is that
 this should build relatively easily..
+
+# Documentation
+As part of a longer term effort to document LillyMol, please see the `docs`
+directory. More documentation will be added to this soon.
