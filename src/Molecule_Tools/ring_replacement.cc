@@ -550,7 +550,7 @@ Replacement_Ring::_process (const Molecule & initial_molecule,
 //  Because we don't know how the Molecule will change the Atom, we need to do
 //  the changes in two passes. First to identify what changes, then to do the changes
 
-  resizable_array_p<Bond> bonds_to_be_removed, bonds_to_be_added;
+  ::resizable_array_p<Bond> bonds_to_be_removed, bonds_to_be_added;
 
   for (int i = 0; i < extra_atoms; i++)
   {
