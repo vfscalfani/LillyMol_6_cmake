@@ -78,7 +78,6 @@ set(srcs
   ${CMAKE_CURRENT_SOURCE_DIR}/toggle_kekule_form.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/tokenise_atomic_smarts.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/unique.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/u3b.c
   ${CMAKE_CURRENT_SOURCE_DIR}/_substructure.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/_qry_wstats.cc
 )

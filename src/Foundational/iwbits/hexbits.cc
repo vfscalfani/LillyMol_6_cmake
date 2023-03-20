@@ -1,4 +1,7 @@
-#include <stdlib.h>
+#include <cstddef>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #include "iwbits.h"
 #include "Foundational/iwstring/iwstring.h"

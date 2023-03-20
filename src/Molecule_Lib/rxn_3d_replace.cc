@@ -178,13 +178,19 @@ identify_moving_atoms (const Molecule & m,
   return rc;
 }
 
+#ifdef HAVE_U3B
 extern "C" void u3b_(const double * w, double * c1, double * c2, const int * n, const int * mode, double *rms, double * u, double * t, int  * ier);
+#endif
 
 int
 Reaction_3D_Replace::process(Molecule & m,
                              const Set_of_Atoms * scaffold_embedding,
                              const Enumeration_Temporaries & etmp) const
 {
+#if ! defined(HAVE_U3B)
+  cerr << "Reaction_3D_Replace::process:u3b not available\n";
+  return 0;
+#else
 //#define DEBUG_PROCESS_3D_REPLACE
 #ifdef DEBUG_PROCESS_3D_REPLACE
   write_msi(cerr, " ", "process");
@@ -324,4 +330,5 @@ Reaction_3D_Replace::process(Molecule & m,
   }
 
   return 1;
+#endif  // HAVE_U3B
 }

@@ -62,6 +62,12 @@ There are some executables that are not built by default that depend on
 `eigen`, and so if you have that installed you could build `tshadow` which
 is an interesting 3D tool.
 
+## f2c (optional)
+There is a 3D reaction capability that depends on some matrix functionality
+implemented in an old Fortran function, that we have been using via f2c.
+As distributed, this functionality is suppressed, so you should not need
+libf2c in order to build.
+
 # Building
 
 Go to the `src` directory and make a build subdirectory.

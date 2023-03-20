@@ -1,7 +1,8 @@
 #include <algorithm>
-#include <limits>
 #include <iostream>
+#include <limits>
 #include <iomanip>
+#include <memory>
 #include <nmmintrin.h>
 
 #include "Foundational/iwbits/dy_fingerprint.h"
