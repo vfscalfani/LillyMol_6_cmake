@@ -40,8 +40,8 @@ DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
 ## re2
 The old regular expression handling in LillyMol6 was horrible, and has been
 replaced by Google's [re2](https://github.com/google/re2). This is a fast and
-convenient to use regular expression matcher. On Ubuntu systems you must have
-`libre2_dev` installed.
+convenient to use regular expression matcher. On Debian-like systems like Ubuntu
+you must have `libre2-dev` installed.
 
 If you are unable to install software on the system, there are options.
 
