@@ -57,6 +57,10 @@ If you are unable to install software on the system, there are options.
 1. Use the `ExternalProject_Add` functionality within `cmake`. The `re2` repo
    is configured for use with `cmake`.
 
+Beware that if you download, configure, install and test re2, it might consume
+several hunred MB of disk space. Even without tests, it may consume over 100MB.
+Removing the source tree after installation may be advisable.
+
 ### zlib
 
 When the old LillyMol was built, there were incompatible versions of zlib in
