@@ -103,7 +103,7 @@ identify_cf3_tbutyl (Molecule & m,
 
       atomic_number_t zk = m.atomic_number(k);
 
-      if (6 == zk || 9 == zk || 17 == zk)
+      if (6 == zk || 9 == zk || 17 == zk || 1 == zk)
         singly_connected++;
     }
 
