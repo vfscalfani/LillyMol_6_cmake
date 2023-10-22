@@ -45,7 +45,7 @@ So, I went ahead and changed the popcount calculation to use `__builtin_popcount
 
 `src/foundational/iwbits/fixed_bit_vector.cc` file:
 
-```
+```cpp
 int
 FixedBitVector::nset() const {
   int rc = 0;
@@ -58,7 +58,7 @@ FixedBitVector::nset() const {
 
 ```
 
-```
+```cpp
 static inline int
 popcount_2fp(const unsigned* bufA,const unsigned* bufB,const int nwords)
 {
@@ -92,7 +92,7 @@ popcount_2fp(const unsigned* bufA,const unsigned* bufB,const int nwords)
 
 This above code was also added to the `src/Utilities/GFP_Tools/gfp_standard.cc` file:
 
-```
+```cpp
 int
 FixedBitVector::BitsInCommon(const FixedBitVector& rhs) const {
   // 32 64-bit words, multiply by 2 for popcount_2fp.
@@ -112,7 +112,7 @@ FixedBitVector::BitsInCommon(const FixedBitVector& rhs) const {
 
 Lastly, in the `src/Utilities/GFP_Tools/gfp_standard.cc` file:
 
-```
+```cpp
 static inline int
 popcount(const unsigned char * b, const int nwords)
 {
