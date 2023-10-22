@@ -90,7 +90,7 @@ popcount_2fp(const unsigned* bufA,const unsigned* bufB,const int nwords)
     }
 ```
 
-This above code was also added to the `src/Utilities/GFP_Tools/gfp_standard.cc` file:
+This above code was also added to the `src/Utilities/GFP_Tools/gfp_standard.cc` file.
 
 ```cpp
 int
