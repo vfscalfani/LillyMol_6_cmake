@@ -8,6 +8,7 @@
 #include <memory>
 #include <algorithm>
 #include <random>
+#include <array> // added to compile on aarch64 Debian 12
 
 #include "Foundational/iwmisc/timsort.hpp"
 

@@ -17,14 +17,20 @@ The purpose of this branch is to get a succesful build of LillyMol 6 using cmake
 an aarch64 based system. In my case, a Raspberry Pi 400 with 4 GB RAM.
 I installed cmake and libre2-dev from the Debian repositories.
 
-Details of Raspberry Pi System for Testing:
+### Test 1 - Details of Raspberry Pi System for Testing
+
+Note, this is the Raspberry Pi OS version, using `lsb_release -a shows`:
 
 ```
 Distributor ID:	Debian
 Description:	Debian GNU/Linux 11 (bullseye)
 Release:	11
 Codename:	bullseye
+```
 
+Software details:
+
+```
 gcc (Debian 10.2.1-6) 10.2.1 20210110
 cmake version 3.18.4
 libre2-dev version 20210201+dfsg-1
@@ -144,6 +150,52 @@ make -j 3
 
 ```
 
+### Test 2 - Details of Raspberry Pi System for Testing
+
+Note, this is the Raspberry Pi OS version, using `lsb_release -a shows`:
+
+```
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 12 (bookworm)
+Release:	12
+Codename:	bookworm
+
+```
+
+Software details:
+
+```
+gcc (Debian 12.2.0-14) 12.2.0
+cmake version 3.25.1
+libre2-dev version 20220601
+```
+
+
+
+While test 1 above worked on Debian 11, this failed on 12. It required one more change, specifically to the
+`src/Utilities/GFP_Tools/gfp_profile_activity_by_bits.cc` file. I added an include statement:
+
+```cpp
+
+...
+#include <memory>
+#include <algorithm>
+#include <random>
+#include <array> // added to compile on aarch64 Debian 12
+...
+
+```
+
+I then used the same process to build:
+
+```
+cd src
+mkdir build
+cd build
+cmake ..
+make -j 3
+
+```
 
 
 
