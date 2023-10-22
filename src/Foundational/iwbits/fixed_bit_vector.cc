@@ -3,7 +3,7 @@
 #include <limits>
 #include <iomanip>
 #include <memory>
-#include <nmmintrin.h>
+// #include <nmmintrin.h>
 
 #include "Foundational/iwbits/dy_fingerprint.h"
 #include "Foundational/iwbits/iwbits.h"
@@ -253,7 +253,8 @@ int
 FixedBitVector::nset() const {
   int rc = 0;
   for (int i = 0; i < _nwords; ++i) {
-    rc +=  _mm_popcnt_u64(_bits[i]);
+    // rc +=  _mm_popcnt_u64(_bits[i]);
+    rc +=  __builtin_popcountll(_bits[i]); // changed for aarch64 build
   }
   return rc;
 }
@@ -276,7 +277,8 @@ popcount_2fp(const unsigned* bufA,const unsigned* bufB,const int nwords)
 {
     int count = 0;
     assert(nwords % 8 == 0);
-     
+
+/*     
 #if defined(__x86_64__)
     int nquads = nwords/2;
     const uint64_t* a64 = (uint64_t*)bufA;
@@ -284,6 +286,20 @@ popcount_2fp(const unsigned* bufA,const unsigned* bufB,const int nwords)
     for (int i = 0; i < nquads; i += 4) {
         count +=  _mm_popcnt_u64(a64[i]&b64[i])     + _mm_popcnt_u64(a64[i+1]&b64[i+1])
                 + _mm_popcnt_u64(a64[i+2]&b64[i+2]) + _mm_popcnt_u64(a64[i+3]&b64[i+3]);
+    }
+
+*/
+
+// changing for aarch64 build
+#if defined(__aarch64__)
+    int nquads = nwords/2;
+    const uint64_t* a64 = (const uint64_t *)bufA;
+    const uint64_t* b64 = (const uint64_t *)bufB;    
+    for (int i = 0; i < nquads; i += 4) {
+        count += __builtin_popcountll(a64[i]&b64[i])
+              + __builtin_popcountll(a64[i+1]&b64[i+1])
+              + __builtin_popcountll(a64[i+2]&b64[i+2])
+              + __builtin_popcountll(a64[i+3]&b64[i+3]);
     }
 #else
     const uint32_t * a32 = (const uint32_t *)bufA;
@@ -307,7 +323,8 @@ FixedBitVector::BitsInCommon(const FixedBitVector& rhs) const {
 
   int rc = 0;
   for (int i = 0; i < _nwords; ++i) {
-    rc +=  _mm_popcnt_u64(_bits[i] & rhs._bits[i]);
+    // rc +=  _mm_popcnt_u64(_bits[i] & rhs._bits[i]);
+    rc +=  __builtin_popcountll(_bits[i] & rhs._bits[i]); // changed for aarch64 build
   }
   return rc;
 }
