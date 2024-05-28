@@ -11,9 +11,18 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+# Ensure static linking
+
+# Licensing information for dependencies:
+# This CMake file configures the build system to statically link with zlib and re2 libraries.
+# zlib is licensed under the zlib License (https://www.zlib.net/zlib_license.html).
+# re2 is licensed under the BSD License (https://github.com/google/re2/blob/main/LICENSE).
+
+set(CMAKE_FIND_LIBRARY_SUFFIXES .a)
+set(BUILD_SHARED_LIBS OFF)
+set(CMAKE_EXE_LINKER_FLAGS "-static -lz -lre2")
+
 add_compile_options(-march=native -DIW_IMPLEMENTATIONS_EXPOSED)
-add_link_options(-lz -lre2)
-SET(CMAKE_EXE_LINKER_FLAGS "-lz -lre2")
 
 add_subdirectory(Foundational/iwaray)
 add_subdirectory(Foundational/accumulator)
@@ -35,4 +44,5 @@ add_subdirectory(Utilities/GFP_Tools)
 add_subdirectory(Molecule_Lib)
 add_subdirectory(Molecule_Tools)
 
-#configure_file(Foundational/iwaray/iwaray.h iwaray.h)
+# configure_file(Foundational/iwaray/iwaray.h iwaray.h)
+

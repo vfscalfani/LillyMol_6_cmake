@@ -1,5 +1,31 @@
 # LillyMol_6_cmake
 
+## Vin Scalfani Notes
+
+This branch is a test for a static build, which would include the dependent zlib and re2 libraries:
+
+**zlib**: A compression library. Licensed under the zlib License.
+  - [zlib License](https://www.zlib.net/zlib_license.html)
+
+**re2**: A regular expression library. Licensed under the BSD License.
+  - [re2 License](https://github.com/google/re2/blob/main/LICENSE)
+
+Install dependencies, on Ubuntu, these may be in the repositories: zlib1g-dev libre2-dev
+
+```
+cd src
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Static -DBUILD_SHARED_LIBS=OFF ..
+make -j 8
+
+```
+
+
+
+## Original Notes from Ian A Watson Below This
+
+
 Fork of the official LillyMol, but builds on Ubuntu systems with cmake.
 
 The official LillyMol has a horrible build process. I have been working on
